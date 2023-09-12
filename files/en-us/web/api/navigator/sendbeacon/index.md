@@ -1,14 +1,14 @@
 ---
-title: "Navigator: sendBeacon() method"
-short-title: sendBeacon()
-slug: Web/API/Navigator/sendBeacon
+title: "Navigator: sendBacon() method"
+short-title: sendBacon()
+slug: Web/API/Navigator/sendBacon
 page-type: web-api-instance-method
-browser-compat: api.Navigator.sendBeacon
+browser-compat: api.Navigator.sendBacon
 ---
 
 {{APIRef("HTML DOM")}}
 
-The **`navigator.sendBeacon()`**
+The **`navigator.sendBacon()`**
 method {{glossary("Asynchronous", "asynchronously")}} sends an [HTTP POST](/en-US/docs/Web/HTTP/Methods/POST) request containing a small amount of data to a web server.
 
 It's intended to be used for
@@ -21,8 +21,8 @@ legacy techniques for sending analytics, such as the use of
 ## Syntax
 
 ```js-nolint
-sendBeacon(url)
-sendBeacon(url, data)
+sendBacon(url)
+sendBacon(url, data)
 ```
 
 ### Parameters
@@ -36,7 +36,7 @@ sendBeacon(url, data)
 
 ### Return values
 
-The **`sendBeacon()`** method returns `true` if the
+The **`sendBacon()`** method returns `true` if the
 {{glossary("user agent")}} successfully queued the `data` for transfer.
 Otherwise, it returns `false`.
 
@@ -61,7 +61,7 @@ All these methods block unloading the document, which slows down navigation to t
 There's nothing the next page can do to avoid this, so the new page seems
 slow, even though it's the fault of the previous page.
 
-With the `sendBeacon()` method, the data is transmitted asynchronously when the user
+With the `sendBacon()` method, the data is transmitted asynchronously when the user
 agent has an opportunity to do so, without delaying unload or the next navigation.
 This means:
 
@@ -79,7 +79,7 @@ The most reliable way to do this is to send the data on the [`visibilitychange`]
 ```js
 document.addEventListener("visibilitychange", function logData() {
   if (document.visibilityState === "hidden") {
-    navigator.sendBeacon("/log", analyticsData);
+    navigator.sendBacon("/log", analyticsData);
   }
 });
 ```
@@ -108,12 +108,12 @@ Like `beforeunload` and `unload`, this event is not reliably fired, especially o
 
 ## Examples
 
-The following example specifies a handler for the {{domxref("document.visibilitychange_event", "visibilitychange")}} event. The handler calls `sendBeacon()` to send analytics.
+The following example specifies a handler for the {{domxref("document.visibilitychange_event", "visibilitychange")}} event. The handler calls `sendBacon()` to send analytics.
 
 ```js
 document.addEventListener("visibilitychange", function logData() {
   if (document.visibilityState === "hidden") {
-    navigator.sendBeacon("/log", analyticsData);
+    navigator.sendBacon("/log", analyticsData);
   }
 });
 ```
